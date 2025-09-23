@@ -1,6 +1,6 @@
 import './UnitToggle.scss';
 import DropdownBtns from './Buttons';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUnit } from '../../slices/weatherSlice';
 
@@ -9,6 +9,18 @@ const UnitToggle = () => {
 	const unit = useSelector((state) => state.weather.unit);
 	const [open, setOpen] = useState(false);
 
+	// This handles clicks outside the dropdown to close it
+	useEffect(() => {
+		const handleClickOutside = (event) => {
+			if (!event.target.closest('.units-dropdown')) {
+				setOpen(false);
+			}
+		};
+		document.addEventListener('click', handleClickOutside);
+		return () => {
+			document.removeEventListener('click', handleClickOutside);
+		};
+	}, []);
 	function handleUnitChange(selectedUnit) {
 		dispatch(setUnit(selectedUnit));
 		setOpen(false);
