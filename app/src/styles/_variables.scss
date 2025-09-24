@@ -1,0 +1,35 @@
+// Colors from style-guide.md
+$neutral-900: hsl(243, 96%, 9%);
+$neutral-800: hsl(243, 27%, 20%);
+$neutral-700: hsl(243, 23%, 24%);
+$neutral-600: hsl(243, 23%, 30%);
+$neutral-300: hsl(240, 6%, 70%);
+$neutral-200: hsl(250, 6%, 84%);
+$neutral-0: hsl(0, 0%, 100%);
+
+$orange-500: hsl(28, 100%, 52%);
+
+$blue-500: hsl(233, 67%, 56%);
+$blue-700: hsl(248, 70%, 36%);
+
+$unit-padding: 0.35rem 0.45rem;
+$button-padding: 0.85rem 1.25rem;
+$radius-sm: 0.4rem;
+$radius-md: 0.6rem;
+$radius-lg: 1rem;
+
+$font-DM: 'DM Bans', sans-serif;
+$font-BO: 'Bricolege Grotesque' sans-serif;
+
+$font-sm: 0.85rem;
+$font-md: 1rem;
+$font-lg: 1.15;
+$font-xl: 1.25rem;
+$font-xxl: 3.2rem;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
