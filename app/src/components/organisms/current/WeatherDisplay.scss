@@ -1,0 +1,71 @@
+@import '../../../styles/variables';
+
+.weather-display {
+	&__main {
+		background-image: url('/assets/images/bg-today-large.svg');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		height: 100%;
+		min-height: 22rem;
+		width: 100%;
+		margin-bottom: 1.2rem;
+		box-shadow: 0 5px 7px rgba(0, 0, 0, 0.4);
+		border-radius: $radius-lg;
+		padding: $current-padding;
+		color: $neutral-0;
+
+		&-left {
+			display: flex;
+			flex-direction: row;
+			gap: 0.8rem;
+			align-items: center;
+		}
+		&-right {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+			align-items: flex-start;
+		}
+	}
+
+	&__city {
+		font-size: $font-xlg;
+		font-weight: 600;
+		color: $neutral-0;
+	}
+	&__date {
+		font-size: $font-md;
+		font-weight: 500;
+		color: $neutral-300;
+	}
+
+	&__icon {
+		img {
+			width: 6.25rem;
+			height: 6.25rem;
+		}
+	}
+	&__temperature {
+		font-size: 4.2rem;
+		font-weight: 600;
+	}
+
+	&__details {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+		gap: 1.2rem;
+	}
+}
+
+.app.dark {
+	.weather-display {
+		// background: linear-gradient(180deg, $neutral-800 0%, $neutral-900 100%);
+		font-weight: 500;
+	}
+}
+

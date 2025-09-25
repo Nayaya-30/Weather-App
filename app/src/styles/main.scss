@@ -1,0 +1,12 @@
+@import 'variables';
+
+// Import all component styles
+@import '../components/atoms/SearchBar.scss';
+@import '../components/atoms/ThemeToggle.scss';
+@import '../components/atoms/UnitToggle.scss';
+@import '../components/atoms/LoadingSpinner.scss';
+@import '../components/atoms/ErrorMessage.scss';
+@import '../components/atoms/SearchSuggestions.scss';
+@import '../components/molecules/Header.scss';
+@import '../components/organisms/WeatherDisplay.scss';
+@import '../components/organisms/Forecast.scss';
