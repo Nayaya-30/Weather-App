@@ -1,0 +1,108 @@
+@import '../../styles/variables';
+
+.forecast {
+  background-color: $neutral-0;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    color: $neutral-900;
+    font-size: 1.5rem;
+  }
+}
+
+.forecast__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+}
+
+.forecast-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 5px;
+  border-radius: 12px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: $neutral-200;
+  }
+
+  &__date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  &__weekday {
+    font-weight: 600;
+    color: $neutral-900;
+  }
+
+  &__day {
+    font-size: 0.9rem;
+    color: $neutral-600;
+  }
+
+  &__icon {
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  &__temps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__temp-max {
+    font-weight: 600;
+    color: $neutral-900;
+  }
+
+  &__temp-min {
+    color: $neutral-600;
+    font-size: 0.9rem;
+  }
+}
+
+.app.dark {
+  .forecast {
+    background-color: $neutral-800;
+
+    &__title {
+      color: $neutral-0;
+    }
+  }
+
+  .forecast-day {
+    &:hover {
+      background-color: $neutral-700;
+    }
+
+    &__weekday {
+      color: $neutral-0;
+    }
+
+    &__day {
+      color: $neutral-300;
+    }
+
+    &__temp-max {
+      color: $neutral-0;
+    }
+
+    &__temp-min {
+      color: $neutral-300;
+    }
+  }
+}
