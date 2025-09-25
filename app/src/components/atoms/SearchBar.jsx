@@ -28,7 +28,7 @@ const SearchBar = ({ onSearch }) => {
 		e.preventDefault();
 		if (query.trim()) {
 			onSearch(query);
-			popularCities.includes(query) || popularCities.push(query); // Add to popular cities if not already present
+			popularCities.includes(query) ?? popularCities.push(query); // Add to popular cities if not already present
 			setQuery('');
 			setShowSuggestions(false);
 		}
@@ -65,13 +65,16 @@ const SearchBar = ({ onSearch }) => {
 						setTimeout(() => setShowSuggestions(false), 200)
 					}
 					placeholder={'Search for places...'}
+					aria-label={'Search Input'}
 				/>
+
 				<button
 					type={'submit'}
 					className={'search-bar__button'}
-					aria-label={'Search'}>
+					aria-label={'Search Button'}>
 					Search
 				</button>
+
 				{showSuggestions && query && (
 					<SearchSuggestions
 						suggestions={filteredSuggestions}
