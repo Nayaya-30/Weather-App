@@ -1,9 +1,9 @@
 import React from 'react';
 import './WeatherDisplay.scss';
 import { useSelector } from 'react-redux';
-import { getWeatherIcon } from '../../../utils/weatherIcon';
-import { getCountryName } from '../../../utils/countryName';
-import { getDateFormat } from '../../../utils/dateFormat';
+import { getWeatherIcon } from '../../../utils/getWeatherIcon';
+import { getCountryName } from '../../../utils/getCountryName';
+import { getDateFormat } from '../../../utils/getDateFormat';
 import WeatherDetail from './WeatherDetail';
 
 const WeatherDisplay = () => {
