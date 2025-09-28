@@ -31,7 +31,11 @@ const HourlyForecast = () => {
 						className={'hourly-forecast__dropdown-toggle-btn'}
 						onClick={() => setIsOpen(!isOpen)}>
 						<p>{dailyForecasts[selectedDay].weekday}</p>
-						<img src={'/assets/images/icon-dropdown.svg'} />
+						<img
+							src={'/assets/images/icon-dropdown.svg'}
+							alt={'Arrow'}
+							className={isOpen ? 'flip' : 'flip-back'}
+						/>
 					</span>
 
 					<ul

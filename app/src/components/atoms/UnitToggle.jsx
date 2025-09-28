@@ -8,13 +8,13 @@ import { useClickOutside } from '../../hooks/useWindowsClick';
 const UnitToggle = () => {
 	const dispatch = useDispatch();
 	const unit = useSelector((state) => state.weather.unit);
-	const [open, setOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
 	const dropdownRef = useRef(null);
 
-	useClickOutside(dropdownRef, () => setOpen(false));
+	useClickOutside(dropdownRef, () => setIsOpen(false));
 	function handleUnitChange(selectedUnit) {
 		dispatch(setUnit(selectedUnit));
-		setOpen(false);
+		setIsOpen(false);
 	}
 
 	return (
@@ -24,7 +24,7 @@ const UnitToggle = () => {
 			<button
 				type='button'
 				className={'units-dropdown__label'}
-				onClick={() => setOpen(!open)}>
+				onClick={() => setIsOpen(!isOpen)}>
 				<img
 					src={'/assets/images/icon-units.svg'}
 					alt={'Units Icon'}
@@ -33,10 +33,11 @@ const UnitToggle = () => {
 				<img
 					src={'/assets/images/icon-dropdown.svg'}
 					alt={'Dropdown Icon'}
+					className={isOpen ? 'flip' : 'flip-back'}
 				/>
 			</button>
 
-			<div className={`units-dropdown__menu ${open ? 'open' : ''}`}>
+			<div className={`units-dropdown__menu ${isOpen ? 'open' : ''}`}>
 				<button
 					type='button'
 					className={'units-dropdown__toggle-btn'}

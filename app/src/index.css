@@ -34,3 +34,14 @@ body {
   background-color: #f5f5f5;
   transition: background-color 0.3s;
 }
+
+.flip {
+  transform: rotateX(180deg);
+  transition: transform 0.3s;
+  transform-origin: center;
+}
+.flip-back {
+  transform: rotateX(0deg);
+  transition: transform 0.3s;
+  transform-origin: center;
+}

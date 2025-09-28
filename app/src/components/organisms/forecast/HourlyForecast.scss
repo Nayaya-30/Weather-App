@@ -44,7 +44,7 @@
 			}
 			&:focus {
 				background-color: darken($color: $neutral-200, $amount: 20);
-				outline: 2px solid $neutral-300;
+				outline: 2px solid red;
 				outline-offset: 2px;
 			}
 			img {
