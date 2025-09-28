@@ -11,7 +11,7 @@
 
 	&__text {
 		font-family: $font-BO;
-		font-size: clamp(1.2rem, 1.2rem + 1.5vw, $font-xxl);
+		font-size: $font-xxl;
 		font-weight: 700;
 		color: $neutral-900;
 		transition: color 0.2s;
@@ -22,7 +22,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 0.5rem;
+		gap: 0.8rem;
 	}
 
 	&__icon {
@@ -34,6 +34,11 @@
 		height: 20px;
 		pointer-events: none;
 		z-index: 10;
+
+		img {
+			filter: invert(0.5) grayscale(1) brightness(0.7) sepia(0)
+				hue-rotate(0deg) saturate(1) contrast(1);
+		}
 	}
 
 	&__input {
@@ -97,6 +102,11 @@
 				outline: 2px solid $neutral-0;
 				outline-offset: 2px;
 				box-shadow: 0 0 0 4px rgba($neutral-0, 0.2);
+			}
+		}
+		&__icon {
+			img {
+				filter: invert(1);
 			}
 		}
 	}

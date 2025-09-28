@@ -1,4 +1,4 @@
-export function getDateFormat(timestamp, format) {
+export function getDateFormat(timestamp) {
   if (!timestamp) return '';
 
   const date = new Date(timestamp * 1000); // timestamp is in seconds
@@ -10,5 +10,5 @@ export function getDateFormat(timestamp, format) {
     year: 'numeric' 
   };
 
-  return new Intl.DateTimeFormat(format, options).format(date);
+  return new Intl.DateTimeFormat('en-US', options).format(date);
 }

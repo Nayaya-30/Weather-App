@@ -26,6 +26,10 @@
 			outline: 2px solid $neutral-300;
 			outline-offset: 2px;
 		}
+		img {
+			filter: invert(0.6) grayscale(1) brightness(0.1) sepia(0)
+				hue-rotate(0deg) saturate(1) contrast(1);
+		}
 	}
 
 	&__menu {
@@ -110,6 +114,9 @@
 			&:focus {
 				background-color: lighten($color: $neutral-700, $amount: 5);
 				outline: 2px solid $neutral-0;
+			}
+			img {
+				filter: invert(0);
 			}
 		}
 
