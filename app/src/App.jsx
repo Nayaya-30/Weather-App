@@ -100,17 +100,20 @@ function App() {
 				/>
 			)}
 
-			<section className='weather-section'>
-				<div className='weather-main'>
-					{current && !loading && <WeatherDisplay />}
+			{forecast && !loading && !error && (
+				<section className='weather-section'>
+					<div className='weather-main'>
+						<WeatherDisplay />
 
-					{forecast && !loading && <Forecast />}
-				</div>
+						<Forecast />
+					</div>
 
-				{forecast && !loading && <HourlyForecast />}
-			</section>
+					<HourlyForecast />
+				</section>
+			)}
 		</main>
 	);
 }
 
 export default App;
+

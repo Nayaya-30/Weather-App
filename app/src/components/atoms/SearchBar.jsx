@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchSuggestions from './SearchSuggestions';
+import { useSelector } from 'react-redux';
 import './SearchBar.scss';
 
 const SearchBar = ({ onSearch }) => {
 	const [query, setQuery] = useState('');
 	const [showSuggestions, setShowSuggestions] = useState(false);
-
-	// Sample popular cities for suggestions
-	const popularCities = [
+	const [disabled, setDisabled] = useState(true);
+	const [popularCities, setPopularCities] = useState([
 		'Abuja',
 		'Kano',
 		'Akwanga',
@@ -18,26 +18,41 @@ const SearchBar = ({ onSearch }) => {
 		'Anambra',
 		'Delta',
 		'Minna',
-	];
+	]);
+	const loading = useSelector((state) => state.weather.loading);
 
 	const filteredSuggestions = popularCities.filter((city) =>
 		city.toLowerCase().includes(query.toLowerCase())
 	);
 
+	useEffect(() => {
+		if (query.trim()) {
+			setDisabled(false);
+		} else {
+			setDisabled(true);
+		}
+	}, [query]);
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (query.trim()) {
 			onSearch(query);
-			popularCities.includes(query) ?? popularCities.push(query); // Add to popular cities if not already present
+			// Add to popular cities if not already present
+			if (!popularCities.includes(query)) {
+				let Query = query.charAt(0).toUpperCase() + query.slice(1);
+				setPopularCities((prev) => [...prev, Query]);
+			}
 			setQuery('');
 			setShowSuggestions(false);
+			setDisabled(true);
 		}
 	};
 
 	const handleSuggestionClick = (suggestion) => {
-		setQuery('');
+		setQuery(suggestion);
 		onSearch(suggestion);
 		setShowSuggestions(false);
+		setDisabled(true);
 	};
 
 	return (
@@ -56,6 +71,7 @@ const SearchBar = ({ onSearch }) => {
 				</label>
 
 				<input
+					id={'search-input'}
 					className={'search-bar__input'}
 					type={'text'}
 					value={query}
@@ -70,9 +86,10 @@ const SearchBar = ({ onSearch }) => {
 
 				<button
 					type={'submit'}
-					className={'search-bar__button'}
-					aria-label={'Search Button'}>
-					Search
+					className={`search-bar__button ${disabled && 'search-bar__button-disabled'}` }
+					aria-label={'Search Button'}
+					disabled={disabled}>
+					{loading ? 'Searching...' : 'Search'}
 				</button>
 
 				{showSuggestions && query && (
@@ -87,4 +104,3 @@ const SearchBar = ({ onSearch }) => {
 };
 
 export default SearchBar;
-
