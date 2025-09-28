@@ -1,11 +1,11 @@
-@import '../../styles/variables';
+@import '../../../styles/variables';
 
 .forecast {
-	margin-top: 5rem;
+	margin-top: 2rem;
 
 	&__title {
 		margin-top: 0;
-		margin-bottom: $font-xlg;
+		margin-bottom: 0.5rem;
 		font-family: $font-BO;
 		color: $neutral-900;
 		font-size: 1.5rem;

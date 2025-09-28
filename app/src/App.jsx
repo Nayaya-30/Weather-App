@@ -10,7 +10,8 @@ import {
 import Header from './components/molecules/Header';
 import SearchBar from './components/atoms/SearchBar';
 import WeatherDisplay from './components/organisms/current/WeatherDisplay';
-import Forecast from './components/organisms/Forecast';
+import Forecast from './components/organisms/forecast/Forecast';
+import HourlyForecast from './components/organisms/forecast/HourlyForecast';
 import ThemeToggle from './components/atoms/ThemeToggle';
 import UnitToggle from './components/atoms/UnitToggle';
 import LoadingSpinner from './components/atoms/LoadingSpinner';
@@ -80,19 +81,15 @@ function App() {
 				/>
 			)}
 
-			{current && !loading && (
-				<WeatherDisplay
-					weather={current}
-					unit={unit}
-				/>
-			)}
+			<section className='weather-section'>
+				<div className='weather-main'>
+					{current && !loading && <WeatherDisplay />}
 
-			{forecast && !loading && (
-				<Forecast
-					forecast={forecast}
-					unit={unit}
-				/>
-			)}
+					{forecast && !loading && <Forecast />}
+				</div>
+
+				{forecast && !loading && <HourlyForecast />}
+			</section>
 		</main>
 	);
 }

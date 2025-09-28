@@ -7,18 +7,31 @@ $neutral-300: hsl(240, 6%, 70%);
 $neutral-200: hsl(250, 6%, 84%);
 $neutral-0: hsl(0, 0%, 100%);
 
+$lighten-700: lighten(
+	$color: $neutral-700,
+	$amount: 3,
+);
+$darken-200: darken(
+	$color: $neutral-200,
+	$amount: 6,
+);
+
 $orange-500: hsl(28, 100%, 52%);
 
 $blue-500: hsl(233, 67%, 56%);
 $blue-700: hsl(248, 70%, 36%);
 
 $unit-padding: 0.35rem 0.45rem;
+$toggle-padding: 0.4rem 0.8rem;
 $forecast-padding: 0.8rem;
 $button-padding: 0.85rem 1.25rem;
 $current-padding: 0 1.5rem;
 $radius-sm: 0.4rem;
 $radius-md: 0.6rem;
 $radius-lg: 1rem;
+
+$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
 
 $font-DM: 'DM Bans', sans-serif;
 $font-BO: 'Bricolege Grotesque' sans-serif;

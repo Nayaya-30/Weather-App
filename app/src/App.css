@@ -7,13 +7,22 @@
   height: 100%;
   padding: 0 4.5rem;
 
-
   &.dark {
     background-color: #1a1a2e;
     color: #ffffff;
   }
 }
 
+.weather-section {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+.weather-main {
+  /* flex: 1; */
+  width: 100%;
+}
 .loading, .error {
   text-align: center;
   padding: 20px;

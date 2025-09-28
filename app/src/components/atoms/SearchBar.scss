@@ -11,7 +11,7 @@
 
 	&__text {
 		font-family: $font-BO;
-		font-size: $font-xxl;
+		font-size: clamp(1.2rem, 1.2rem + 1.5vw, $font-xxl);
 		font-weight: 700;
 		color: $neutral-900;
 		transition: color 0.2s;

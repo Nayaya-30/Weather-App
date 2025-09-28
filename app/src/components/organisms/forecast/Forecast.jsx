@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import { getForecastList } from '../../utils/getForecastList';
-import { getWeatherIcon } from '../../utils/getWeatherIcon';
+import { getForecastList } from '../../../utils/getForecastList';
+import { getWeatherIcon } from '../../../utils/getWeatherIcon';
 import './Forecast.scss';
 
 const Forecast = () => {
