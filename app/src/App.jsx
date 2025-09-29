@@ -87,9 +87,7 @@ function App() {
 				/>
 			</Header>
 
-			<div className={''}>
-				<SearchBar onSearch={handleSearch} />
-			</div>
+			{!error && <SearchBar onSearch={handleSearch} />}
 
 			{loading && <LoadingSpinner />}
 

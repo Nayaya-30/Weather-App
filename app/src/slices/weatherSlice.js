@@ -60,9 +60,9 @@ const weatherSlice = createSlice({
         state.loading = false;
         state.current = action.payload;
       })
-      .addCase(fetchWeather.rejected, (state, action) => {
+      .addCase(fetchWeather.rejected, (state) => {
         state.loading = false;
-        state.error = action.payload;
+        state.error = "We could'nt connect to the server (API error). Please try again in a few moments.";
       })
       
       // Fetch forecast cases
@@ -74,9 +74,9 @@ const weatherSlice = createSlice({
         state.loading = false;
         state.forecast = action.payload;
       })
-      .addCase(fetchForecast.rejected, (state, action) => {
+      .addCase(fetchForecast.rejected, (state) => {
         state.loading = false;
-        state.error = action.payload;
+        state.error = "We could'nt connect to the server (API error). Please try again in a few moments."
       });
   },
 });
