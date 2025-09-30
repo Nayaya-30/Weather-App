@@ -1,0 +1,67 @@
+@import '../../styles/variables';
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+
+  &__ring {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    &::before {
+      width: 100%;
+      height: 100%;
+      border: 8px solid $neutral-200;
+    }
+
+    &::after {
+      width: 100%;
+      height: 100%;
+      border: 8px solid transparent;
+      border-top-color: $blue-500;
+      animation: spin 1.5s linear infinite;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 18px;
+    color: $neutral-600;
+    font-weight: 500;
+  }
+}
+
+.app.dark {
+  .loading-spinner {
+    &__ring {
+      &::before {
+        border-color: $neutral-700;
+      }
+    }
+
+    &__text {
+      color: $neutral-300;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
