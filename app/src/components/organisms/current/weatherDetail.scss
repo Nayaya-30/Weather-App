@@ -1,0 +1,63 @@
+@import '../../../styles/_variables.scss';
+
+.weather-detail {
+	background-color: $neutral-200;
+	border-radius: $radius-lg;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 1.5rem;
+	padding: 1.2rem 1rem;
+	transition: all 0.3s ease-in-out;
+	margin-top: 0.5rem;
+	// Adding glossy border effect
+	border: 1px solid transparent;
+	background: linear-gradient($neutral-200, $neutral-200) padding-box,
+		linear-gradient(45deg, $neutral-300, $neutral-600, $neutral-300)
+			border-box;
+
+	&:hover {
+		cursor: pointer;
+		background-color: $neutral-300;
+		box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+		transform: scale(1.01);
+		// Update glossy effect on hover
+		background: linear-gradient($neutral-300, $neutral-300) padding-box,
+			linear-gradient(45deg, $neutral-600, $neutral-300, $neutral-600)
+				border-box;
+	}
+
+	&__label {
+		color: $neutral-600;
+		font-size: 1rem;
+		font-weight: 400;
+	}
+
+	&__value {
+		color: $neutral-900;
+		font-size: $font-xlg;
+		font-weight: 300;
+	}
+}
+
+.app.dark {
+	.weather-detail {
+		background-color: $neutral-700;
+		background: linear-gradient($neutral-700, $neutral-700) padding-box,
+			linear-gradient(45deg, $neutral-600, $neutral-300, $neutral-600)
+				border-box;
+
+		&:hover {
+			background-color: lighten($color: $neutral-700, $amount: 5);
+			background: linear-gradient($neutral-600, $neutral-600) padding-box,
+				linear-gradient(45deg, $neutral-300, $neutral-200, $neutral-300)
+					border-box;
+		}
+		&__value {
+			color: $neutral-0;
+		}
+		&__label {
+			color: $neutral-300;
+		}
+	}
+}

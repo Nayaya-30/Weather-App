@@ -1,17 +1,17 @@
 import './Header.scss';
+import Logo from '../templates/Logo.jsx';
 
 const Header = ({ children }) => {
-  return (
-    <header className={'header'}>
-      <div className={'header__left'}>
-        <img className={'header__logo'} src={'/assets/images/logo.svg'} alt={'Weathe App Logo'} />
-      </div>
+	return (
+		<header className={'header'}>
+			<div className={'header__left'}>
+				<Logo className={'header__logo'} />
+			</div>
 
-      <div className={'header__right'}>
-          {children}
-      </div>
-    </header>
-  );
+			<div className={'header__right'}>{children}</div>
+		</header>
+	);
 };
 
 export default Header;
+

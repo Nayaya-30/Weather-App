@@ -1,0 +1,47 @@
+@import './styles/_variables.scss';
+/* Import DM Sans font */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 1000;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/DM_Sans/DMSans-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 1000;
+  font-style: italic;
+}
+
+/* Import Bricolage Grotesque font */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/assets/fonts/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf') format('truetype');
+  font-weight: 100 1000;
+  font-style: normal;
+}
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #f5f5f5;
+  transition: background-color 0.3s;
+}
+
+.flip {
+  transform: rotateX(180deg);
+  transition: transform 0.3s;
+  transform-origin: center;
+}
+.flip-back {
+  transform: rotateX(0deg);
+  transition: transform 0.3s;
+  transform-origin: center;
+}

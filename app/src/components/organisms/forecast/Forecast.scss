@@ -1,0 +1,129 @@
+@import '../../../styles/variables';
+
+.forecast {
+	margin-top: 2rem;
+
+	&__title {
+		margin-top: 0;
+		margin-bottom: 0.5rem;
+		font-family: $font-BO;
+		color: $neutral-900;
+		font-size: 1.5rem;
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+		gap: 1rem;
+	}
+}
+
+.forecast-day {
+	background-color: $neutral-200;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: $forecast-padding;
+	border-radius: $radius-lg;
+	transition: all 0.2s ease-in-out;
+	border: 1px solid transparent;
+	background: linear-gradient($neutral-200, $neutral-200) padding-box,
+		linear-gradient(45deg, $neutral-300, $neutral-600, $neutral-300)
+			border-box;
+
+	&:hover {
+		transform: translateY(-5px);
+		cursor: pointer;
+		box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+		// Update glossy effect on hover
+		background: linear-gradient($neutral-300, $neutral-300) padding-box,
+			linear-gradient(45deg, $neutral-600, $neutral-300, $neutral-600)
+				border-box;
+	}
+
+	&__date {
+		text-align: center;
+	}
+
+	&__weekday {
+		font-weight: 600;
+		color: $neutral-900;
+	}
+
+	&__day {
+		font-size: 0.9rem;
+		color: $neutral-600;
+	}
+
+	&__icon {
+		img {
+			width: 3.125rem;
+			height: 3.125rem;
+		}
+	}
+
+	&__temps {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	&__temp-max {
+		font-weight: 600;
+		color: $neutral-900;
+	}
+
+	&__temp-min {
+		color: $neutral-600;
+		font-size: 0.9rem;
+	}
+
+	&__skeleton-icon {
+		width: 3.125rem;
+		height: 3.125rem;
+		background-color: rgba($neutral-200, 0.1);
+	}
+}
+
+.app.dark {
+	.forecast {
+		&__title {
+			color: $neutral-0;
+		}
+	}
+
+	.forecast-day {
+		background: linear-gradient($neutral-700, $neutral-700) padding-box,
+			linear-gradient(45deg, $neutral-600, $neutral-300, $neutral-600)
+				border-box;
+
+		&:hover {
+			background-color: lighten($color: $neutral-700, $amount: 5);
+			background: linear-gradient($neutral-600, $neutral-600) padding-box,
+				linear-gradient(45deg, $neutral-300, $neutral-200, $neutral-300)
+					border-box;
+		}
+
+		&__weekday {
+			color: $neutral-0;
+		}
+
+		&__day {
+			color: $neutral-300;
+		}
+
+		&__temp-max {
+			color: $neutral-0;
+		}
+
+		&__temp-min {
+			color: $neutral-300;
+		}
+
+		&__skeleton-icon {
+			background-color: rgba($neutral-700, 0.1);
+		}
+	}
+}
+

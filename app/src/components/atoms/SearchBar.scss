@@ -1,0 +1,133 @@
+@import '../../styles/variables';
+
+.search-bar {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 3rem;
+	margin-bottom: 1.2rem;
+
+	&__text {
+		font-family: $font-BO;
+		font-size: $font-xxl;
+		font-weight: 700;
+		color: $neutral-900;
+		transition: color 0.2s;
+	}
+
+	&__container {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.8rem;
+	}
+
+	&__icon {
+		position: absolute;
+		left: 1rem;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 20px;
+		height: 20px;
+		pointer-events: none;
+		z-index: 10;
+
+		img {
+			filter: invert(0.5) grayscale(1) brightness(0.7) sepia(0)
+				hue-rotate(0deg) saturate(1) contrast(1);
+		}
+	}
+
+	&__input {
+		width: 100%;
+		min-width: 32rem;
+		padding: $button-padding;
+		padding-left: 3rem;
+		border-radius: $radius-md;
+		font-size: $font-md;
+		background-color: $neutral-200;
+		color: $neutral-700;
+		font-weight: 600;
+		z-index: 2;
+
+		&:focus {
+			outline: 2px solid $neutral-300;
+			outline-offset: 2px;
+			background-color: $neutral-300;
+			box-shadow: 0 0 0 2px rgba($neutral-300, 0.2);
+		}
+
+		&::placeholder {
+			color: $neutral-300;
+		}
+	}
+
+	&__button {
+		padding: $button-padding;
+		background-color: $blue-500;
+		color: $neutral-0;
+		border: none;
+		border-radius: $radius-md;
+		font-family: 'DM Sans', sans-serif;
+		font-size: $font-md;
+		font-weight: 600;
+		cursor: pointer;
+		transition: background-color 0.2s;
+		z-index: 2;
+
+		&:hover {
+			background-color: $blue-700;
+		}
+		&:focus {
+			outline: 2px solid $blue-500;
+			outline-offset: 2px;
+			box-shadow: 0 0 0 4px rgba($blue-500, 0.2);
+		}
+
+		&-disabled {
+			background-color: $neutral-800;
+			cursor: not-allowed;
+
+			&:hover {
+				background-color: $neutral-800;
+			}
+		}
+	}
+}
+
+.app.dark {
+	.search-bar {
+		&__text {
+			color: $neutral-0;
+		}
+		&__input {
+			background-color: $neutral-700;
+			color: $neutral-0;
+
+			&:focus {
+				outline: 2px solid $neutral-0;
+				outline-offset: 2px;
+				box-shadow: 0 0 0 4px rgba($neutral-0, 0.2);
+			}
+		}
+		&__icon {
+			img {
+				filter: invert(1);
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.search-bar {
+		flex-direction: column;
+
+		&__button {
+			width: 100%;
+		}
+	}
+}
+
