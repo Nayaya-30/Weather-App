@@ -1,4 +1,8 @@
 const getForecastList = (forecast) => {
+    // Validate input
+    if (!forecast || !Array.isArray(forecast.list)) {
+        return [];
+    }
     // Group forecast by day
     const dailyForecasts = forecast.list.reduce((acc, item) => {
         const date = new Date(item.dt * 1000);
@@ -14,7 +18,7 @@ const getForecastList = (forecast) => {
 
     // Get one forecast per day (the first one)
     const dailyForecastList = Object.entries(dailyForecasts)
-        .slice(0, 6) // Get onlyl 6 days
+        .slice(0, 7) // Get only 7 days
         .map(([day, items]) => {
             const date = new Date(items[0].dt * 1000);
             const weekday = date.toLocaleDateString('en-US', { weekday: 'short' });

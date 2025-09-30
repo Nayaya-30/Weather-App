@@ -39,8 +39,8 @@ const SearchBar = ({ onSearch }) => {
 			onSearch(query);
 			// Add to popular cities if not already present
 			if (!popularCities.includes(query)) {
-				let Query = query.charAt(0).toUpperCase() + query.slice(1);
-				setPopularCities((prev) => [...prev, Query]);
+				let queryCity = query.charAt(0).toUpperCase() + query.slice(1);
+				setPopularCities((prev) => [...prev, queryCity]);
 			}
 			setQuery('');
 			setShowSuggestions(false);
@@ -86,7 +86,9 @@ const SearchBar = ({ onSearch }) => {
 
 				<button
 					type={'submit'}
-					className={`search-bar__button ${disabled && 'search-bar__button-disabled'}` }
+					className={`search-bar__button ${
+						disabled && 'search-bar__button-disabled'
+					}`}
 					aria-label={'Search Button'}
 					disabled={disabled}>
 					{loading ? 'Searching...' : 'Search'}
@@ -104,3 +106,4 @@ const SearchBar = ({ onSearch }) => {
 };
 
 export default SearchBar;
+

@@ -14,7 +14,6 @@ export function getWeatherIcon(description) {
     { keywords: ['mist', 'fog', 'haze'], icon: '/assets/images/icon-fog.webp' }
   ];
 
-  return (
-    conditions.find(condition => condition.keywords.some(k => desc.includes(k)))?.icon
-  );
+  const found = conditions.find(condition => condition.keywords.some(k => desc.includes(k)));
+  return found?.icon || '/assets/images/icon-fog.webp';
 }

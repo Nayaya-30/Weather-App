@@ -13,8 +13,8 @@ const HourlyForecast = () => {
 	const dropdownRef = useRef(null);
 
 	useClickOutside(dropdownRef, () => setIsOpen(false));
-	const handleDayChange = (e) => {
-		selectDay(parseInt(e.target.value));
+	const handleDayChange = (index) => {
+		selectDay(index);
 		setIsOpen(false);
 	};
 
@@ -45,13 +45,12 @@ const HourlyForecast = () => {
 					<ul
 						className={`hourly-forecast__dropdown-menu ${
 							isOpen ? 'open' : ''
-						}`}
-						onClick={handleDayChange}>
+						}`}>
 						{dailyForecasts.map((day, index) => (
 							<li
 								className={'hourly-forecast__dropdown-option'}
 								key={index.toString()}
-								value={index}>
+								onClick={() => handleDayChange(index)}>
 								{day.weekday}
 							</li>
 						))}
