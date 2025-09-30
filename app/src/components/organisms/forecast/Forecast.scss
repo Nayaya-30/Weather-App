@@ -78,6 +78,12 @@
 		color: $neutral-600;
 		font-size: 0.9rem;
 	}
+
+	&__skeleton-icon {
+		width: 3.125rem;
+		height: 3.125rem;
+		background-color: rgba($neutral-200, 0.1);
+	}
 }
 
 .app.dark {
@@ -113,6 +119,10 @@
 
 		&__temp-min {
 			color: $neutral-300;
+		}
+
+		&__skeleton-icon {
+			background-color: rgba($neutral-700, 0.1);
 		}
 	}
 }

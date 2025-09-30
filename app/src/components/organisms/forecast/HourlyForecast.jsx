@@ -6,7 +6,7 @@ import { useClickOutside } from '../../../hooks/useWindowsClick';
 import './HourlyForecast.scss';
 
 const HourlyForecast = () => {
-	const { forecast, unit } = useSelector((state) => state.weather);
+	const { forecast, unit, loading } = useSelector((state) => state.weather);
 	const { dailyForecasts, hourlyData, selectedDay, selectDay, formatTime } =
 		useHourlyForecast(forecast);
 	const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +30,11 @@ const HourlyForecast = () => {
 					<span
 						className={'hourly-forecast__dropdown-toggle-btn'}
 						onClick={() => setIsOpen(!isOpen)}>
-						<p>{dailyForecasts[selectedDay].weekday}</p>
+						<p>
+							{loading
+								? '-'
+								: dailyForecasts[selectedDay].weekday}
+						</p>
 						<img
 							src={'/assets/images/icon-dropdown.svg'}
 							alt={'Arrow'}
@@ -66,19 +70,25 @@ const HourlyForecast = () => {
 							key={index}>
 							<div className={'hourly-forecast__item-icon-time'}>
 								<span className={'hourly-forecast__item-icon'}>
-									<img
-										src={icon}
-										alt={hour.weather[0].description}
-									/>
+									{loading ? (
+										<div className='hourly-forecast__skeleton-icon' />
+									) : (
+										<img
+											src={icon}
+											alt={hour.weather[0].description}
+										/>
+									)}
 								</span>
 
 								<span className={'hourly-forecast__item-time'}>
-									{time}
+									{loading ? ' ' : time}
 								</span>
 							</div>
 							<span className={'hourly-forecast__item-temp'}>
-								{Math.round(hour.main.temp)}°
-								{unit === 'metric' ? 'C' : 'F'}
+								{loading
+									? ' '
+									: `${Math.round(hour.main.temp)}°`}
+								{loading ? ' ' : unit === 'metric' ? 'C' : 'F'}
 							</span>
 						</li>
 					);

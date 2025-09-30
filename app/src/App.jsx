@@ -20,7 +20,7 @@ import './App.css';
 
 function App() {
 	const dispatch = useDispatch();
-	const { current, forecast, loading, error, unit, theme } = useSelector(
+	const { current, forecast, error, unit, theme } = useSelector(
 		(state) => state.weather
 	);
 
@@ -89,8 +89,6 @@ function App() {
 
 			{!error && <SearchBar onSearch={handleSearch} />}
 
-			{loading && <LoadingSpinner />}
-
 			{error && (
 				<ErrorMessage
 					message={error}
@@ -98,7 +96,7 @@ function App() {
 				/>
 			)}
 
-			{forecast && !loading && !error && (
+			{forecast && !error && (
 				<section className='weather-section'>
 					<div className='weather-main'>
 						<WeatherDisplay />

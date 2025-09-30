@@ -4,7 +4,7 @@ import { getWeatherIcon } from '../../../utils/getWeatherIcon';
 import './Forecast.scss';
 
 const Forecast = () => {
-	const { forecast, unit } = useSelector((state) => state.weather);
+	const { forecast, unit, loading } = useSelector((state) => state.weather);
 
 	const dailyForecastList = getForecastList(forecast);
 
@@ -22,25 +22,37 @@ const Forecast = () => {
 							key={index.toString()}>
 							<div className='forecast-day__date'>
 								<div className='forecast-day__weekday'>
-									{day.weekday}
+									{loading ? ' ' : day.weekday}
 								</div>
 							</div>
 
 							<div className='forecast-day__icon'>
-								<img
-									src={icon}
-									alt={day.description}
-								/>
+								{loading ? (
+									<div className='forecast-day__skeleton-icon' />
+								) : (
+									<img
+										src={icon}
+										alt={day.description}
+									/>
+								)}
 							</div>
 
 							<div className='forecast-day__temps'>
 								<span className='forecast-day__temp-max'>
-									{day.tempMax}°
-									{unit === 'metric' ? 'C' : 'F'}
+									{loading ? ' ' : `${day.tempMax}°`}
+									{loading
+										? ' '
+										: unit === 'metric'
+										? 'C'
+										: 'F'}
 								</span>
 								<span className='forecast-day__temp-min'>
-									{day.tempMin}°
-									{unit === 'metric' ? 'C' : 'F'}
+									{loading ? ' ' : `${day.tempMin}°`}
+									{loading
+										? ' '
+										: unit === 'metric'
+										? 'C'
+										: 'F'}
 								</span>
 							</div>
 						</article>
