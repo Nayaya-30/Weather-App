@@ -14,7 +14,6 @@ import Forecast from './components/organisms/forecast/Forecast';
 import HourlyForecast from './components/organisms/forecast/HourlyForecast';
 import ThemeToggle from './components/atoms/ThemeToggle';
 import UnitToggle from './components/atoms/UnitToggle';
-import LoadingSpinner from './components/atoms/LoadingSpinner';
 import ErrorMessage from './components/atoms/ErrorMessage';
 import './App.css';
 
