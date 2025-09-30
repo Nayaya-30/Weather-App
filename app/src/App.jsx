@@ -14,11 +14,10 @@ import Forecast from './components/organisms/forecast/Forecast';
 import HourlyForecast from './components/organisms/forecast/HourlyForecast';
 import ThemeToggle from './components/atoms/ThemeToggle';
 import UnitToggle from './components/atoms/UnitToggle';
-import LoadingSpinner from './components/atoms/LoadingSpinner';
 import ErrorMessage from './components/atoms/ErrorMessage';
 import './App.css';
 
-function App() {
+const App = () => {
 	const dispatch = useDispatch();
 	const { current, forecast, error, unit, theme } = useSelector(
 		(state) => state.weather
@@ -109,7 +108,7 @@ function App() {
 			)}
 		</main>
 	);
-}
+};
 
 export default App;
 
