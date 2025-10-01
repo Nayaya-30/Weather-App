@@ -49,7 +49,7 @@ const SearchBar = ({ onSearch }) => {
 	};
 
 	const handleSuggestionClick = (suggestion) => {
-		setQuery(suggestion);
+		setQuery('');
 		onSearch(suggestion);
 		setShowSuggestions(false);
 		setDisabled(true);
