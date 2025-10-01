@@ -8,7 +8,7 @@
   padding: 0 4.5rem;
 
   &.dark {
-    background-color: #1a1a2e;
+    background-color: hsl(243, 96%, 9%);
     color: #ffffff;
   }
 }
