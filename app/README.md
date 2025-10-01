@@ -192,7 +192,7 @@ In future projects, I'd like to focus on:
 ## Author
 
 -   Frontend Mentor - [@Nayaya-30](https://www.frontendmentor.io/profile/Nayaya-30)
--   Twitter - [@yourusername](https://www.twitter.com/usouff_)
+-   Twitter - [@usouff_](https://www.twitter.com/usouff_)
 
 ## Acknowledgments
 
