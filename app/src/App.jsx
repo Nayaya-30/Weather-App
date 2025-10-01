@@ -17,7 +17,7 @@ import UnitToggle from './components/atoms/UnitToggle';
 import ErrorMessage from './components/atoms/ErrorMessage';
 import './App.css';
 
-function App() {
+const App = () => {
 	const dispatch = useDispatch();
 	const { current, forecast, error, unit, theme } = useSelector(
 		(state) => state.weather
@@ -108,7 +108,7 @@ function App() {
 			)}
 		</main>
 	);
-}
+};
 
 export default App;
 

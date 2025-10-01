@@ -13,6 +13,7 @@
 		font-family: $font-BO;
 		font-size: $font-xxl;
 		font-weight: 700;
+		text-align: center;
 		color: $neutral-900;
 		transition: color 0.2s;
 	}
@@ -121,12 +122,41 @@
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
 	.search-bar {
-		flex-direction: column;
+		&__input {
+			min-width: 26rem;
+		}
+		&__text {
+			font-size: 2.6rem;
+		}
+	}
+}
 
+@media (max-width: 640px) {
+	.search-bar {
+		&__text {
+			font-size: 2.2rem;
+		}
+		&__container {
+			flex-direction: column;
+			gap: 1rem;
+			margin: 0 4rem;
+		}
 		&__button {
 			width: 100%;
+		}
+		&__icon {
+			top: 15%;
+			transform: translateY(0%);
+		}
+	}
+}
+
+@media (max-width: 450px) {
+	.search-bar {
+		&__input {
+			min-width: 20rem;
 		}
 	}
 }

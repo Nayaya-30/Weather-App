@@ -1,0 +1,21 @@
+// Function to create linear gradients with consistent styling
+@function create-gradient($color1, $color2, $angle: 45deg) {
+	@return linear-gradient($angle, $color1, $color2, $color1);
+}
+
+@mixin gradient-background($main-color, $border-color, $angle: 45deg) {
+	background-color: $main-color;
+	// Adding glossy border effect
+	background: linear-gradient($main-color, $main-color) padding-box,
+		linear-gradient($angle, $border-color, $main-color, $border-color)
+			border-box;
+}
+
+@mixin hover-gradient-background($main-color, $border-color, $angle: 45deg) {
+	background-color: $main-color;
+	box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+	background: linear-gradient($main-color, $main-color) padding-box,
+		linear-gradient($angle, $border-color, $main-color, $border-color)
+			border-box;
+}
+

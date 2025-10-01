@@ -31,7 +31,6 @@
 			display: flex;
 			flex-direction: column;
 			gap: 0.5rem;
-			align-items: flex-start;
 		}
 	}
 
@@ -91,10 +90,45 @@
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
+	.weather-display {
+		width: 100%;
+
+		&__main {
+			background-image: url('/assets/images/bg-today-large.svg');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			min-height: 18rem;
+		}
+
+		&__loading {
+			gap: 0.45rem;
+			min-height: 18rem;
+		}
+	}
+}
+
+@media (max-width: 560px) {
 	.weather-display {
 		&__main {
-			background-image: url('/assets/images/bg-today-small.svg');
+			flex-direction: column;
+			justify-content: space-around;
+		}
+
+		&-left {
+			gap: 0.6rem;
+		}
+		&-right {
+			gap: 0.35rem;
+		}
+
+		&__date {
+			text-align: center;
+		}
+
+		&__loading {
+			gap: 0.45rem;
 		}
 	}
 }
